@@ -59,4 +59,40 @@ return {
       require("configs.mason-conform")
     end,
   },
+
+  {
+    "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
+    -- dependencies = { "" },
+    -- config = function()
+    --   require("configs.toggleterm")
+    -- end,
+    config = true,
+  },
+
+  {
+    "p00f/clangd_extensions.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("configs.clangd_extensions")
+    end,
+  },
+
+  {
+    "ojroques/nvim-bufdel",
+    event = "VeryLazy",
+    config = true,
+  },
+
+  {
+    "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
+    config = true,
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
+    config = true,
+  },
 }

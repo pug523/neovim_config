@@ -9,18 +9,14 @@ local options = {
   },
 
   formatters = {
-    -- -- C & C++
-    -- ["clang-format"] = {
-    --     prepend_args = {
-    --         "-style={ \
-    --                 IndentWidth: 4, \
-    --                 TabWidth: 4, \
-    --                 UseTab: Never, \
-    --                 AccessModifierOffset: 0, \
-    --                 IndentAccessModifiers: true, \
-    --                 PackConstructorInitializers: Never}",
-    --     },
-    -- },
+    -- C & C++
+    ["clang-format"] = {
+      prepend_args = {
+        "--fail-on-imcomplete-format",
+        "--ferror-limit=1",
+        "--sort-includes",
+      },
+    },
     -- -- Golang
     -- ["goimports-reviser"] = {
     --     prepend_args = { "-rm-unused" },
