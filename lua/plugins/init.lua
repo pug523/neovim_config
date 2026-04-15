@@ -17,14 +17,14 @@ return {
     end,
   },
 
-  {
-    "williamboman/mason-lspconfig.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-lspconfig" },
-    config = function()
-      require("configs.mason-lspconfig")
-    end,
-  },
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "nvim-lspconfig" },
+  --   config = function()
+  --     require("configs.mason-lspconfig")
+  --   end,
+  -- },
 
   {
     "mfussenegger/nvim-lint",
@@ -63,11 +63,9 @@ return {
   {
     "akinsho/toggleterm.nvim",
     event = "VeryLazy",
-    -- dependencies = { "" },
-    -- config = function()
-    --   require("configs.toggleterm")
-    -- end,
-    config = true,
+    config = function()
+      require("configs.toggleterm")
+    end,
   },
 
   {
@@ -84,15 +82,29 @@ return {
     config = true,
   },
 
-  {
-    "nvim-lua/plenary.nvim",
-    event = "VeryLazy",
-    config = true,
-  },
+  -- {
+  --   "nvim-lua/plenary.nvim",
+  --   event = "VeryLazy",
+  --   config = true,
+  -- },
 
   {
     "nvim-telescope/telescope.nvim",
     event = "VeryLazy",
     config = true,
   },
+  {
+    "Shougo/ddx.vim",
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+    config = function() end,
+  },
+  -- {
+  --   "Mythos-404/xmake.nvim",
+  --   event = "VeryLazy",
+  --   config = true,
+  -- },
 }

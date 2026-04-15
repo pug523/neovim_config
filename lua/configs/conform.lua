@@ -1,53 +1,58 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    -- c = { "clang-format" },
-    -- cpp = { "clang-format" },
-    -- go = { "gofumpt", "goimports-reviser", "golines" },
-    -- haskell = { "fourmolu", "stylish-haskell" },
-    -- python = { "isort", "black" },
+    c = { "clang-format" },
+    cpp = { "clang-format" },
+    go = { "gofumpt", "goimports-reviser", "golines" },
+    haskell = { "fourmolu", "stylish-haskell" },
+    python = { "isort", "black" },
   },
 
   formatters = {
     -- C & C++
     ["clang-format"] = {
       prepend_args = {
-        "--fail-on-imcomplete-format",
+        "--fail-on-incomplete-format",
         "--ferror-limit=1",
         "--sort-includes",
       },
     },
-    -- -- Golang
-    -- ["goimports-reviser"] = {
-    --     prepend_args = { "-rm-unused" },
-    -- },
-    -- golines = {
-    --     prepend_args = { "--max-len=80" },
-    -- },
-    -- -- Lua
-    -- stylua = {
-    --     prepend_args = {
-    --         "--column-width", "80",
-    --         "--line-endings", "Unix",
-    --         "--indent-type", "Spaces",
-    --         "--indent-width", "4",
-    --         "--quote-style", "AutoPreferDouble",
-    --     },
-    -- },
+    -- Golang
+    ["goimports-reviser"] = {
+      prepend_args = { "-rm-unused" },
+    },
+    golines = {
+      prepend_args = { "--max-len=80" },
+    },
+    -- Lua
+    stylua = {
+      prepend_args = {
+        "--column-width",
+        "80",
+        "--line-endings",
+        "Unix",
+        "--indent-type",
+        "Spaces",
+        "--indent-width",
+        "2",
+        "--quote-style",
+        "AutoPreferDouble",
+      },
+    },
     -- -- Python
-    -- black = {
-    --     prepend_args = {
-    --         "--fast",
-    --         "--line-length",
-    --         "80",
-    --     },
-    -- },
-    -- isort = {
-    --     prepend_args = {
-    --         "--profile",
-    --         "black",
-    --     },
-    -- },
+    black = {
+      prepend_args = {
+        "--fast",
+        "--line-length",
+        "88",
+      },
+    },
+    isort = {
+      prepend_args = {
+        "--profile",
+        "black",
+      },
+    },
   },
 
   format_on_save = {

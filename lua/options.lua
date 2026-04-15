@@ -3,6 +3,10 @@ require("nvchad.options")
 local o = vim.o
 
 -- Indenting
+-- o.number = true
+-- o.relativenumber = true
+-- o.ignorecase = true
+
 o.shiftwidth = 2
 o.tabstop = 2
 o.softtabstop = 2
