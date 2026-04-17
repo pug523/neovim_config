@@ -109,6 +109,75 @@ return {
     end,
   },
 
+  {
+    "folke/trouble.nvim",
+    event = "VeryLazy",
+    cmd = "Trouble",
+    opts = {},
+  },
+
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {},
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     "rcarriga/nvim-notify",
+  --   },
+  -- },
+
+  {
+    "folke/todo-comments.nvim",
+    opts = {},
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+
+  {
+    "stevearc/overseer.nvim",
+    ---@module 'overseer'
+    ---@type overseer.SetupOpts
+    opts = {},
+  },
+
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^9",
+    -- This plugin implements proper lazy-loading (see :h lua-plugin-lazy).
+    -- No need for lazy.nvim to lazy-load it.
+    lazy = false,
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    lazy = "VeryLazy",
+  },
+
+  {
+    "Mythos-404/xmake.nvim",
+    version = "^3",
+    lazy = true,
+    event = "BufReadPost",
+    config = true,
+  },
+
+  --[[
+
   ---@module "neominimap.config.meta"
   {
     "Isrothy/neominimap.nvim",
@@ -224,4 +293,5 @@ return {
       }
     end,
   },
+  --]]
 }

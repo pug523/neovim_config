@@ -43,3 +43,10 @@ map("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true })
 map("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true })
 map("n", "<C-Up>", ":resize -2<CR>", { silent = true })
 map("n", "<C-Down>", ":resize +2<CR>", { silent = true })
+
+map(
+  "n",
+  "<leader>:",
+  ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
+  { silent = true }
+)

@@ -13,6 +13,7 @@ lspconfig("*", {
 lspconfig("clangd", {
   cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
   init_options = { fallbackFlags = { "-std=c++17" } },
+  on_init = on_init,
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
@@ -33,15 +34,20 @@ lspconfig("clangd", {
 
     on_attach(client, bufnr)
   end,
-  on_init = on_init,
 })
 
 lspconfig("pyright", {
+  on_init = on_init,
   on_attach = on_attach,
   filetypes = { "python" },
   -- root_dir = lspconfig.util.root_pattern(".venv"),
   -- cmd = { "bash", "-c", "source .venv/bin/activate && .venv/bin/pyright-langserver --stdio" },
   cmd = { "bash", "-c", "pyright-langserver --stdio" },
+})
+
+lspconfig("lua_ls", {
+  on_init = on_init,
+  on_attach = on_attach,
 })
 
 --[[
