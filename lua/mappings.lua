@@ -12,11 +12,16 @@ map("n", "<leader>ql", ":bd<CR>", { noremap = true })
 
 -- nvim-bufdel
 map("n", "<leader>qq", ":BufDel<CR>", { noremap = true })
+map("n", "<leader>qo", ":BufDelOthers<CR>", { noremap = true })
+
+map(
+  "n",
+  "<leader>fg",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
+)
 
 -- toggle terminal
-map("n", "<C-\\>", ":ToggleTerm<CR>", { noremap = true, silent = true })
-
-map("n", "<leader>lg", ":Telescope live_grep, { noremap = true, }")
+-- map("n", "<C-\\>", ":ToggleTerm<CR>", { noremap = true, silent = true })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 

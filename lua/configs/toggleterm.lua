@@ -1,7 +1,7 @@
 require("toggleterm").setup({
   open_mapping = [[<c-t>]],
   close_on_exit = true,
-  start_in_insert = true,
+  start_in_insert = false,
   persist_size = true,
   direction = "horizontal",
   float_opts = {
