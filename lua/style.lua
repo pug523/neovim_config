@@ -1,0 +1,26 @@
+-- onedark
+-- vim.pack.add({
+--   "https://github.com/navarasu/onedark.nvim",
+-- })
+-- require("onedark").setup({
+--   style = "darker",
+-- })
+-- require("onedark").load()
+
+-- catppuccin
+-- vim.pack.add({
+--   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+-- })
+-- vim.cmd("colorscheme catppuccin-nvim")
+
+-- kanagawa
+-- vim.pack.add({ "https://github.com/rebelot/kanagawa.nvim" })
+-- vim.cmd("colorscheme kanagawa")
+
+-- tokyodark
+-- vim.pack.add({ "https://github.com/folke/tokyonight.nvim" })
+-- vim.cmd("colorscheme tokyonight-night")
+
+-- nightfox (carbonfox)
+vim.pack.add({ "https://github.com/edeneast/nightfox.nvim" })
+vim.cmd("colorscheme carbonfox")

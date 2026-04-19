@@ -45,6 +45,7 @@ vim.filetype.add({
 })
 
 vim.treesitter.language.register("rust", { "alcy", "alcf" })
+-- vim.treesitter.language.register("cpp")
 
-require("nvim-treesitter").setup()
 require("nvim-treesitter.config").setup(options)
+require("nvim-treesitter").setup()

@@ -4,7 +4,7 @@ local opt = vim.opt
 -- Indenting
 o.number = true
 o.relativenumber = false
-o.ignorecase = false
+o.ignorecase = true
 
 o.shiftwidth = 2
 o.tabstop = 2
@@ -16,6 +16,8 @@ o.splitbelow = true
 o.splitright = true
 
 o.pumborder = "rounded"
+
+opt.clipboard = "unnamedplus"
 opt.completeopt = {
   "menu",
   "menuone",
@@ -23,8 +25,7 @@ opt.completeopt = {
   "fuzzy",
   "popup",
 }
-
-opt.clipboard = "unnamedplus"
+opt.termguicolors = true
 
 -- set filetype for .CBL COBOL files.
 -- vim.cmd([[ au BufRead,BufNewFile *.CBL set filetype=cobol ]])
