@@ -3,4 +3,4 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-telescope/telescope-live-grep-args.nvim",
 })
-require("telescope").setup()
+require("telescope").setup({})

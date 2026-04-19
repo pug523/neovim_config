@@ -1,3 +1,10 @@
+-- nightfox (carbonfox)
+vim.pack.add({ "https://github.com/edeneast/nightfox.nvim" })
+vim.cmd("colorscheme carbonfox")
+
+vim.cmd("highlight NormalFloat guifg=#ded6d5 guibg=NONE")
+vim.cmd("highlight FloatBorder guifg=#e3dcdc guibg=NONE")
+
 -- onedark
 -- vim.pack.add({
 --   "https://github.com/navarasu/onedark.nvim",
@@ -20,7 +27,3 @@
 -- tokyodark
 -- vim.pack.add({ "https://github.com/folke/tokyonight.nvim" })
 -- vim.cmd("colorscheme tokyonight-night")
-
--- nightfox (carbonfox)
-vim.pack.add({ "https://github.com/edeneast/nightfox.nvim" })
-vim.cmd("colorscheme carbonfox")

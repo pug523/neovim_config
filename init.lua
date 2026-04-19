@@ -1,13 +1,15 @@
+if vim.loader then
+  vim.loader.enable()
+end
+
 require("options")
-require("mappings")
-
-require("vim._core.ui2").enable({})
-
--- call style before plugins for some plugins that checks vim.g.color_scheme
+-- call `style` before `plugins` for some plugins that checks vim.g.color_scheme
 require("style")
 
-require("plugins")
-
 vim.schedule(function()
+  require("mappings")
   require("lsp")
+
+  require("plugins")
+  require("vim._core.ui2").enable({})
 end)

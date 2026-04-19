@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "bufferline.nvim": {
+      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
     "carbonfox.nvim": {
       "rev": "519e218d0edaf5cd68ed631d5e13c4b590847931",
       "src": "https://github.com/ss77a/carbonfox.nvim"
@@ -31,6 +35,10 @@
     "mason-lspconfig.nvim": {
       "rev": "0a3b42c3e503df87aef6d6513e13148381495c3a",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
+      "src": "https://github.com/mason-org/mason.nvim"
     },
     "nightfox.nvim": {
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",

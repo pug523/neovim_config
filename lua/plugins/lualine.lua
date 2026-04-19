@@ -28,13 +28,13 @@ local function get_mode_color()
     n = colors.DARKBLUE,
     i = colors.VIOLET,
     v = colors.RED,
-    [""] = colors.BLUE,
+    -- [""] = colors.BLUE,
     V = colors.RED,
     c = colors.MAGENTA,
     no = colors.RED,
     s = colors.ORANGE,
     S = colors.ORANGE,
-    [""] = colors.ORANGE,
+    -- [""] = colors.ORANGE,
     ic = colors.YELLOW,
     R = colors.ORANGE,
     Rv = colors.ORANGE,
@@ -45,6 +45,7 @@ local function get_mode_color()
     ["r?"] = colors.CYAN,
     ["!"] = colors.RED,
     t = colors.RED,
+    nt = colors.YELLOW,
   }
   -- Return the opposite color, or fallback to foreground color
   return mode_color[vim.fn.mode()]
@@ -69,34 +70,34 @@ local function get_opposite_color(mode_color)
 end
 
 -- Function to get an animated color (randomly chosen from available colors)
-local function get_animated_color(mode_color)
-  -- Define a list of all available colors
-  local all_colors = {
-    colors.RED,
-    colors.BLUE,
-    colors.GREEN,
-    colors.MAGENTA,
-    colors.ORANGE,
-    colors.CYAN,
-    colors.VIOLET,
-    colors.YELLOW,
-    colors.DARKBLUE,
-  }
-  -- Create a list of possible opposite colors (excluding the current mode color)
-  local possible_opposites = {}
-  for _, color in ipairs(all_colors) do
-    if color ~= mode_color then
-      table.insert(possible_opposites, color)
-    end
-  end
-  -- Randomly select an opposite color
-  if #possible_opposites > 0 then
-    local random_index = math.random(1, #possible_opposites)
-    return possible_opposites[random_index]
-  else
-    return colors.FG -- Default to foreground color if no opposite found
-  end
-end
+-- local function get_animated_color(mode_color)
+--   -- Define a list of all available colors
+--   local all_colors = {
+--     colors.RED,
+--     colors.BLUE,
+--     colors.GREEN,
+--     colors.MAGENTA,
+--     colors.ORANGE,
+--     colors.CYAN,
+--     colors.VIOLET,
+--     colors.YELLOW,
+--     colors.DARKBLUE,
+--   }
+--   -- Create a list of possible opposite colors (excluding the current mode color)
+--   local possible_opposites = {}
+--   for _, color in ipairs(all_colors) do
+--     if color ~= mode_color then
+--       table.insert(possible_opposites, color)
+--     end
+--   end
+--   -- Randomly select an opposite color
+--   if #possible_opposites > 0 then
+--     local random_index = math.random(1, #possible_opposites)
+--     return possible_opposites[random_index]
+--   else
+--     return colors.FG -- Default to foreground color if no opposite found
+--   end
+-- end
 
 -- Function to interpolate between two colors for a smooth transition
 local function interpolate_color(color1, color2, step)
@@ -160,66 +161,66 @@ end
 -- -- Set random seed based on current time for randomness
 math.randomseed(os.time())
 -- Icon sets for random selection
-local icon_sets = {
-  stars = { "★", "☆", "✧", "✦", "✶", "✷", "✸", "✹" }, -- Set of star-like icons
-  runes = {
-    "✠",
-    "⛧",
-    "𖤐",
-    "ᛟ",
-    "ᚨ",
-    "ᚱ",
-    "ᚷ",
-    "ᚠ",
-    "ᛉ",
-    "ᛊ",
-    "ᛏ",
-    "☠",
-    "☾",
-    "♰",
-    "✟",
-    "☽",
-    "⚚",
-    "🜏",
-  }, -- Set of rune-like symbols
-  hearts = { "❤", "♥", "♡", "❦", "❧" }, -- Set of heart-shaped icons
-  waves = { "≈", "∿", "≋", "≀", "⌀", "≣", "⌇" }, -- Set of wave-like symbols
-  crosses = { "☨", "✟", "♰", "♱", "⛨", "" }, -- Set of cross-like symbols
-}
+-- local icon_sets = {
+--   stars = { "★", "☆", "✧", "✦", "✶", "✷", "✸", "✹" }, -- Set of star-like icons
+--   runes = {
+--     "✠",
+--     "⛧",
+--     "𖤐",
+--     "ᛟ",
+--     "ᚨ",
+--     "ᚱ",
+--     "ᚷ",
+--     "ᚠ",
+--     "ᛉ",
+--     "ᛊ",
+--     "ᛏ",
+--     "☠",
+--     "☾",
+--     "♰",
+--     "✟",
+--     "☽",
+--     "⚚",
+--     "🜏",
+--   }, -- Set of rune-like symbols
+--   hearts = { "❤", "♥", "♡", "❦", "❧" }, -- Set of heart-shaped icons
+--   waves = { "≈", "∿", "≋", "≀", "⌀", "≣", "⌇" }, -- Set of wave-like symbols
+--   crosses = { "☨", "✟", "♰", "♱", "⛨", "" }, -- Set of cross-like symbols
+-- }
 
 -- Function to select a random icon from a given set
-local function get_random_icon(icons)
-  return icons[math.random(#icons)] -- Returns a random icon from the set
-end
+-- local function get_random_icon(icons)
+--   return icons[math.random(#icons)] -- Returns a random icon from the set
+-- end
 
 -- Function to shuffle the elements in a table
-local function shuffle_table(tbl)
-  local n = #tbl
-  while n > 1 do
-    local k = math.random(n)
-    tbl[n], tbl[k] = tbl[k], tbl[n] -- Swap elements
-    n = n - 1 -- Decrease the size of the unsorted portion
-  end
-end
+-- local function shuffle_table(tbl)
+--   local n = #tbl
+--   while n > 1 do
+--     local k = math.random(n)
+--     tbl[n], tbl[k] = tbl[k], tbl[n] -- Swap elements
+--     n = n - 1 -- Decrease the size of the unsorted portion
+--   end
+-- end
 
 -- Create a list of all icon sets to allow for random selection from any set
-local icon_sets_list = {}
-for _, icons in pairs(icon_sets) do
-  table.insert(icon_sets_list, icons) -- Add each icon set to the list
-end
-shuffle_table(icon_sets_list) -- Shuffle the icon sets list
+-- local icon_sets_list = {}
+-- for _, icons in pairs(icon_sets) do
+--   table.insert(icon_sets_list, icons) -- Add each icon set to the list
+-- end
+-- shuffle_table(icon_sets_list) -- Shuffle the icon sets list
 
 -- Function to reverse the order of elements in a table
-local function reverse_table(tbl)
-  local reversed = {}
-  for i = #tbl, 1, -1 do
-    table.insert(reversed, tbl[i]) -- Insert elements in reverse order
-  end
-  return reversed
-end
-
--- Create a reversed list of icon sets
-local reversed_icon_sets = reverse_table(icon_sets_list)
+-- local function reverse_table(tbl)
+--   local reversed = {}
+--   for i = #tbl, 1, -1 do
+--     table.insert(reversed, tbl[i]) -- Insert elements in reverse order
+--   end
+--   return reversed
+-- end
+--
+-- -- Create a reversed list of icon sets
+-- local reversed_icon_sets = reverse_table(icon_sets_list)
 
 -- Function to create a separator component based on side (left/right) and optional mode color
 local function create_separator(side, use_mode_color)
@@ -287,6 +288,10 @@ local function mode()
   return mode_map[vim.fn.mode()] or "[UNKNOWN]"
 end
 
+local function is_not_terminal()
+  return vim.bo.buftype ~= "terminal"
+end
+
 -- Config
 local config = {
   options = {
@@ -299,12 +304,6 @@ local config = {
           bg = colors.BG,
         },
       },
-      inactive = {
-        c = {
-          fg = colors.FG,
-          bg = colors.BG,
-        },
-      }, -- Simplified inactive theme
     },
     disabled_filetypes = {
       "neo-tree",
@@ -324,29 +323,8 @@ local config = {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {
-      {
-
-        "location",
-        color = function()
-          return {
-            fg = colors.FG,
-            gui = "bold",
-          }
-        end,
-      },
-    },
-    lualine_x = {
-      {
-        "filename",
-        color = function()
-          return {
-            fg = colors.FG,
-            gui = "bold,italic",
-          }
-        end,
-      },
-    },
+    lualine_c = {},
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   },
@@ -406,18 +384,6 @@ ins_left(create_separator("left"))
 
 ins_left({
   function()
-    return ""
-  end,
-  color = function()
-    return {
-      fg = get_middle_color(),
-    }
-  end,
-  cond = hide_in_width,
-})
-
-ins_left({
-  function()
     local git_status = vim.b.gitsigns_status_dict
     if git_status then
       return string.format(
@@ -437,19 +403,19 @@ ins_left({
   cond = hide_in_width,
 })
 
-for _, icons in pairs(icon_sets_list) do
-  ins_left({
-    function()
-      return get_random_icon(icons)
-    end,
-    color = function()
-      return {
-        fg = get_animated_color(),
-      }
-    end,
-    cond = hide_in_width,
-  })
-end
+-- for _, icons in pairs(icon_sets_list) do
+--   ins_left({
+--     function()
+--       return get_random_icon(icons)
+--     end,
+--     color = function()
+--       return {
+--         fg = get_animated_color(),
+--       }
+--     end,
+--     cond = hide_in_width,
+--   })
+-- end
 
 ins_left({
   "searchcount",
@@ -482,19 +448,19 @@ ins_right({
   },
 })
 
-for _, icons in ipairs(reversed_icon_sets) do
-  ins_right({
-    function()
-      return get_random_icon(icons)
-    end,
-    color = function()
-      return {
-        fg = get_animated_color(),
-      }
-    end,
-    cond = hide_in_width,
-  })
-end
+-- for _, icons in ipairs(reversed_icon_sets) do
+--   ins_right({
+--     function()
+--       return get_random_icon(icons)
+--     end,
+--     color = function()
+--       return {
+--         fg = get_animated_color(),
+--       }
+--     end,
+--     cond = hide_in_width,
+--   })
+-- end
 
 ins_right({
   function()
@@ -532,16 +498,6 @@ ins_right({
     fg = colors.YELLOW,
     gui = "bold",
   },
-})
-
-ins_right({
-  function()
-    return ""
-  end,
-  color = function()
-    return { fg = get_middle_color() }
-  end,
-  cond = hide_in_width,
 })
 
 ins_right(create_separator("right"))
@@ -626,5 +582,5 @@ ins_right(create_separator("right"))
 
 ins_right(create_mode_based_component("progress", nil, colors.BG))
 
--- require("lualine").setup(config)
-require("lualine").setup()
+require("lualine").setup(config)
+-- require("lualine").setup()

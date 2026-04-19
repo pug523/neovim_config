@@ -26,21 +26,9 @@ opt.completeopt = {
   "popup",
 }
 opt.termguicolors = true
+opt.laststatus = 3
 
--- set filetype for .CBL COBOL files.
--- vim.cmd([[ au BufRead,BufNewFile *.CBL set filetype=cobol ]])
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if not client then
-      return
-    end
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
-  end,
-})
-
-vim.cmd("highlight NormalFloat guibg=NONE")
-vim.cmd("highlight FloatBorder guifg=#569CD6 guibg=NONE")
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
