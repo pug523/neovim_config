@@ -1,6 +1,13 @@
 local map = vim.keymap.set
 local silent = { silent = true }
 
+local function merge(t1, t2)
+  for k, v in pairs(t2) do
+    t1[k] = v
+  end
+  return t1
+end
+
 vim.g.mapleader = " "
 vim.g.maplocal = "\\"
 
@@ -10,30 +17,34 @@ map("i", "jk", "<esc>")
 -- bufdel
 -- map("n", "<leader>qq", ":BufDel<CR>", { noremap = true })
 -- map("n", "<leader>qo", ":BufDelOthers<CR>", { noremap = true })
-map("n", "<leader><BS>", ":Bdel<CR>", silent)
+map("n", "<leader><BS>", ":Bdel<CR>", merge(silent, { desc = "Delete buffer" }))
 
 -- previous / next buffer
-map("n", "<S-tab>", ":bp<CR>", silent)
-map("n", "<tab>", ":bn<CR>", silent)
+map("n", "<S-tab>", ":bp<CR>", merge(silent, { desc = "Previous buffer" }))
+map("n", "<tab>", ":bn<CR>", merge(silent, { desc = "Next buffer" }))
 
-map(
-  "n",
-  "<leader>fg",
-  "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-  { desc = "Live Grep with Args" }
-)
+map("n", "<leader>fg", function()
+  require("telescope").extensions.live_grep_args.live_grep_args()
+end, { desc = "Live Grep with Args" })
 
--- lsp quick fix
+-- LSP
 map(
   "n",
   "<leader>qd",
   vim.diagnostic.setqflist,
   { desc = "Quickfix diagnostics" }
 )
+map(
+  "n",
+  "<leader>td",
+  "<cmd>Trouble diagnostics toggle<CR>",
+  { desc = "Diagnostics (Trouble)" }
+)
 map("n", "<leader>qf", vim.diagnostic.open_float, { desc = "Open float" })
 map("n", "K", function()
   vim.lsp.buf.hover({ border = "rounded" })
 end, { desc = "LSP hover" })
+
 -- map("n", "<leader>qr", vim.lsp.buf.references, { desc = "LSP references" }) grr
 -- map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Apply quickfix" }) gra
 
@@ -63,29 +74,20 @@ map("n", "<A-l>", function()
   require("smart-splits").resize_right()
 end, silent)
 
-map(
-  "n",
-  "[d",
-  "<cmd>lua vim.diagnostic.jump({count=-1, float=true})<CR>",
-  silent
-)
-map(
-  "n",
-  "]d",
-  "<cmd>lua vim.diagnostic.jump({count=-1, float=true})<CR>",
-  silent
-)
+map("n", "[d", function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, silent)
+map("n", "]d", function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, silent)
 
-map(
-  "n",
-  "<leader>;",
-  "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
-  silent
-)
+map("n", "<leader>;", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, silent)
 
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", silent)
 
--- toggle terminal
+-- Toggle terminal
 -- map("n", "<C-t>", "<cmd>split term://zsh<CR>", silent)
 -- map("n", "<leader>s", "<cmd>split<CR>", silent)
 map("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })

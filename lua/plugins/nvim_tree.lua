@@ -7,6 +7,13 @@ local options = {
   --   enable = true,
   --   -- update_root = true,
   -- },
+  actions = {
+    file_popup = {
+      open_win_config = {
+        border = "rounded",
+      },
+    },
+  },
 }
 
 require("nvim-tree").setup(options)
