@@ -2,6 +2,9 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    -- version = "v0.10.0",
+    branch = "main",
+    build = ":TSUpdate",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("configs.treesitter")
@@ -136,17 +139,17 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
 
-  {
-    "stevearc/oil.nvim",
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
-    -- Optional dependencies
-    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
-  },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   -- Optional dependencies
+  --   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  --   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  --   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  --   lazy = false,
+  -- },
 
   {
     "stevearc/overseer.nvim",
@@ -174,6 +177,21 @@ return {
     lazy = true,
     event = "BufReadPost",
     config = true,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    version = false, -- last release is way too old
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+    },
+    opts = function()
+      require("configs.nvim-cmp")
+    end,
+    main = "lazyvim.util.cmp",
   },
 
   --[[

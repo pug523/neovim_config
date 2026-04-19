@@ -4,36 +4,39 @@ local options = {
     "c",
     "cmake",
     "cpp",
-    "fish",
-    -- "go",
+    -- "fish",
+    "go",
     -- "gomod",
     -- "gosum",
     -- "gotmpl",
     -- "gowork",
     -- "haskell",
+    "javascript",
     "lua",
     "luadoc",
-    -- "make",
+    "make",
     "markdown",
     -- "odin",
     "printf",
-    -- "python",
+    "python",
     "rust",
     "toml",
+    "typescript",
     "vim",
     "vimdoc",
     "yaml",
+    "zig",
   },
 
   highlight = {
     enable = true,
-    use_languagetree = true,
   },
 
   indent = { enable = true },
 }
 
-require("nvim-treesitter.configs").setup(options)
+-- require("nvim-treesitter.configs").setup(options)
+require("nvim-treesitter.config").setup(options)
 
 vim.filetype.add({
   extension = {
