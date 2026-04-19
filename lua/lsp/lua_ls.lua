@@ -1,3 +1,6 @@
+local xmake_lua_path =
+  vim.fn.expand("~/.local/share/xmake_ls/resources/std/xmake/")
+
 vim.lsp.config["lua_ls"] = {
   settings = {
     Lua = {
@@ -11,6 +14,7 @@ vim.lsp.config["lua_ls"] = {
           "${3rd}/luv/library",
           "${3rd}/busted/library",
           "${3rd}/luassert/library",
+          xmake_lua_path,
         }),
         checkThirdParty = "Disable",
       },
