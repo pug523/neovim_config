@@ -4,5 +4,5 @@ require("plugins")
 
 vim.schedule(function()
   require("lsp")
-	require("mappings")
+  require("mappings")
 end)
