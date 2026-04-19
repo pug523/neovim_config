@@ -1,18 +1,20 @@
+local lsp = vim.lsp
+
 local function on_attach(client, bufnr)
-  -- if client:supports_method("textDocument/completion") then
-  vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-  -- end
+  if client:supports_method("textDocument/completion") then
+    lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+  end
 
   local opts = { buffer = bufnr, silent = true }
   local map = vim.keymap.set
-  map("n", "gd", vim.lsp.buf.definition, opts)
-  map("n", "K", vim.lsp.buf.hover, opts)
-  map("n", "gi", vim.lsp.buf.implementation, opts)
-  map("n", "gD", vim.lsp.buf.declaration, opts)
-  map("n", "gr", vim.lsp.buf.references, opts)
+  map("n", "gd", lsp.buf.definition, opts)
+  map("n", "K", lsp.buf.hover, opts)
+  map("n", "gi", lsp.buf.implementation, opts)
+  map("n", "gD", lsp.buf.declaration, opts)
+  map("n", "gr", lsp.buf.references, opts)
 end
 
-vim.lsp.config("*", {
+lsp.config("*", {
   capabilities = {
     textDocument = {
       semanticTokens = {
@@ -31,7 +33,8 @@ local lsp_servers = {
   "pyright",
   "zls",
 }
+
 require("lsp.clangd")
 require("lsp.lua_ls")
 
-vim.lsp.enable(lsp_servers)
+lsp.enable(lsp_servers)

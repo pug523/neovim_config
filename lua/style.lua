@@ -1,9 +1,13 @@
 -- nightfox (carbonfox)
 vim.pack.add({ "https://github.com/edeneast/nightfox.nvim" })
+require("nightfox").setup({})
+
 vim.cmd("colorscheme carbonfox")
 
 vim.cmd("highlight NormalFloat guifg=#ded6d5 guibg=NONE")
 vim.cmd("highlight FloatBorder guifg=#e3dcdc guibg=NONE")
+
+require("vim._core.ui2").enable({})
 
 -- onedark
 -- vim.pack.add({
