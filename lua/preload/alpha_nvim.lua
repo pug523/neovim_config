@@ -37,7 +37,7 @@ dashboard.section.buttons.val = {
   button("q", "󰩈  Quit", "<cmd>qa<CR>"),
   button(
     "s",
-    "󰦛 Restore last session",
+    "󰦛  Restore last session",
     "<cmd>lua require('persistence').load()<CR>"
   ),
 }
