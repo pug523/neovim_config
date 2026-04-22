@@ -11,5 +11,25 @@ require("toggleterm").setup({
   end,
   open_mapping = [[<C-t>]],
   shade_filetypes = {},
-  direction = "vertical",
+  start_in_insert = false,
+  persist_size = true,
+  persist_mode = true,
+  direction = "float", -- "vertical" | "horizontal" | "tab" | "float"
+  close_on_exit = true,
+  auto_scroll = false,
+
+  float_opts = {
+    -- The border key is *almost* the same as 'nvim_open_win'
+    -- see :h nvim_open_win for details on borders however
+    -- the 'curved' border is a custom border type
+    -- not natively supported but implemented in this plugin.
+    border = "curved", -- 'single' | 'double' | 'shadow' | 'curved' |
+    -- width = <value>,
+    -- height = <value>,
+    -- row = <value>,
+    -- col = <value>,
+    winblend = 10,
+    -- zindex = <value>,
+    title_pos = "left", -- 'left' | 'center' | 'right', position of the title of the floating window
+  },
 })
