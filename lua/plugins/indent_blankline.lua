@@ -4,6 +4,8 @@ require("ibl").setup({
   exclude = {
     filetypes = {
       "dashboard",
+      "NvimTree",
+      "toggleterm",
     },
   },
 })
