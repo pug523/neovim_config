@@ -1,10 +1,10 @@
 vim.pack.add({
   "https://github.com/rcarriga/nvim-notify",
 })
-
-require("notify").setup({
+local notify = require("notify")
+notify.setup({
   background_colour = "#ffffff",
   merge_duplicates = true,
 })
 
-vim.notify = require("notify")
+vim.notify = notify
