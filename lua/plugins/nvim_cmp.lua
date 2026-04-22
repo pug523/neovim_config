@@ -8,7 +8,9 @@ vim.pack.add({
   "https://github.com/L3MON4D3/LuaSnip",
   "https://github.com/saadparwaiz1/cmp_luasnip",
 })
+
 local cmp = require("cmp")
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -28,8 +30,8 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "vsnip" }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = "vsnip" }, -- For vsnip users.
+    { name = "luasnip" }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   }, {

@@ -1,5 +1,7 @@
 local lsp = vim.lsp
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local function on_attach(client, bufnr)
   if client:supports_method("textDocument/completion") then
     lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
@@ -15,13 +17,7 @@ local function on_attach(client, bufnr)
 end
 
 lsp.config("*", {
-  capabilities = {
-    textDocument = {
-      semanticTokens = {
-        multilineTokenSupport = true,
-      },
-    },
-  },
+  capabilities = capabilities,
   on_attach = on_attach,
   root_markers = { ".git" },
 })

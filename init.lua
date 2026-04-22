@@ -16,9 +16,11 @@ require("mappings")
 require("preload")
 
 local function setup_all()
-  require("lsp")
-  require("diagnostic")
   require("plugins")
+  require("diagnostic")
+
+  -- call after `plugins`, lsp requires nvim_cmp
+  require("lsp")
 end
 
 if setup_async then
