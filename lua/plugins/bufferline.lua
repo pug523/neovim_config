@@ -8,6 +8,9 @@ require("bufferline").setup({
         -- text_align = "left", -- "left" | "center" | "right"
         -- separator = true, -- Adds a vertical separator
       },
+      {
+        filetype = "toggleterm",
+      },
     },
   },
 })

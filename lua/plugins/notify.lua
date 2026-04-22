@@ -6,3 +6,5 @@ require("notify").setup({
   background_colour = "#ffffff",
   merge_duplicates = true,
 })
+
+vim.notify = require("notify")
