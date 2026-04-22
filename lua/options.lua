@@ -5,6 +5,7 @@ local opt = vim.opt
 o.number = true
 o.relativenumber = true
 o.ignorecase = true
+o.smartcase = true
 o.expandtab = true
 o.tabstop = 2
 o.shiftwidth = 2

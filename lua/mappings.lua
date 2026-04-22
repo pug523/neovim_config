@@ -14,6 +14,9 @@ vim.g.maplocal = "\\"
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<esc>")
 
+-- no highlight search
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- bufdel
 -- map("n", "<leader>qq", ":BufDel<CR>", { noremap = true })
 -- map("n", "<leader>qo", ":BufDelOthers<CR>", { noremap = true })
@@ -56,10 +59,15 @@ end, { desc = "Code actions preview" })
 map("n", "<leader>co", "<cmd>copen<CR>", { desc = "Open quickfix list" })
 map("n", "<leader>cc", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
 
-map("n", "<C-Left>", "<cmd>vertical resize -1<CR>", silent)
-map("n", "<C-Right>", "<cmd>vertical resize +1<CR>", silent)
-map("n", "<C-Up>", "<cmd>resize -1<CR>", silent)
-map("n", "<C-Down>", "<cmd>resize +1<CR>", silent)
+-- map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", silent)
+-- map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", silent)
+-- map("n", "<C-Up>", "<cmd>resize -2<CR>", silent)
+-- map("n", "<C-Down>", "<cmd>resize +2<CR>", silent)
+
+-- map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", silent)
+-- map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", silent)
+-- map("n", "<C-Up>", "<cmd>resize -2<CR>", silent)
+-- map("n", "<C-Down>", "<cmd>resize +2<CR>", silent)
 
 map("n", "<A-h>", function()
   require("smart-splits").resize_left()
@@ -90,7 +98,7 @@ map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", silent)
 -- Toggle terminal
 -- map("n", "<C-t>", "<cmd>split term://zsh<CR>", silent)
 -- map("n", "<leader>s", "<cmd>split<CR>", silent)
-map("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
+-- map("n", "<C-t>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
 
 -- persistence
 map("n", "<leader>qs", function()
