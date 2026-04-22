@@ -14,7 +14,7 @@ require("toggleterm").setup({
   start_in_insert = false,
   persist_size = true,
   persist_mode = true,
-  direction = "float", -- "vertical" | "horizontal" | "tab" | "float"
+  direction = "horizontal", -- "vertical" | "horizontal" | "tab" | "float"
   close_on_exit = true,
   auto_scroll = false,
 
