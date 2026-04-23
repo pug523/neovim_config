@@ -52,9 +52,10 @@ end, { desc = "LSP hover" })
 -- map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Apply quickfix" }) gra
 
 -- LSP code actions preview
-map({ "v", "n" }, "gf", function()
+map({ "v", "n" }, "ga", function()
   require("actions-preview").code_actions()
 end, { desc = "Code actions preview" })
+
 
 map("n", "<leader>co", "<cmd>copen<CR>", { desc = "Open quickfix list" })
 map("n", "<leader>cc", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
@@ -117,3 +118,6 @@ end)
 map("n", "<leader>qd", function()
   require("persistence").stop()
 end)
+
+-- debug adapter protocol ui
+map("n", "<A-d>", '<cmd>lua require("dapui").toggle()<CR>', silent)
