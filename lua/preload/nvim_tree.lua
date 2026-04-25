@@ -13,6 +13,9 @@ local options = {
         border = "rounded",
       },
     },
+    open_file = {
+      resize_window = false,
+    },
   },
 }
 
