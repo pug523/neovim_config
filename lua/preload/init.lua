@@ -3,5 +3,6 @@ local function load(name)
 end
 
 load("alpha_nvim")
--- load("dashboard_nvim")
 -- load("bufferline")
+-- load("dashboard_nvim")
+load("nvim_tree")

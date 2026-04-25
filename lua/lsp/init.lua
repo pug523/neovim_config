@@ -23,8 +23,8 @@ lsp.config("*", {
 })
 
 local lsp_servers = {
-  "lua_ls",
   "clangd",
+  "lua_ls",
   "rust_analyzer",
   "pyright",
   "zls",
