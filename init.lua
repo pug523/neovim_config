@@ -12,9 +12,6 @@ require("mappings")
 
 -- require("plugins")
 
--- preload plugins such as `alpha-nvim``
-require("preload")
-
 local function setup_all()
   require("plugins")
   require("diagnostic")
