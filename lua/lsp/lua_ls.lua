@@ -20,4 +20,5 @@ vim.lsp.config["lua_ls"] = {
       },
     },
   },
+  on_attach = vim.lsp.config["*"].on_attach,
 }

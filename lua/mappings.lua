@@ -56,7 +56,6 @@ map({ "v", "n" }, "ga", function()
   require("actions-preview").code_actions()
 end, { desc = "Code actions preview" })
 
-
 map("n", "<leader>co", "<cmd>copen<CR>", { desc = "Open quickfix list" })
 map("n", "<leader>cc", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
 
@@ -121,3 +120,21 @@ end)
 
 -- debug adapter protocol ui
 map("n", "<A-d>", '<cmd>lua require("dapui").toggle()<CR>', silent)
+
+local function compare_to_clipboard()
+  local ftype = vim.api.nvim_eval("&filetype")
+  vim.cmd(string.format(
+    [[
+    vsplit
+    wincmd l
+    enew
+    setlocal buftype=nofile | set filetype=%s
+    normal! P
+    diffthis
+    wincmd h | diffthis
+  ]],
+    ftype
+  ))
+end
+
+map("n", "<leader>bc", compare_to_clipboard, { desc = "Compare to clipboard" })

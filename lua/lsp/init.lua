@@ -9,11 +9,19 @@ local function on_attach(client, bufnr)
 
   local opts = { buffer = bufnr, silent = true }
   local map = vim.keymap.set
-  map("n", "gd", lsp.buf.definition, opts)
-  map("n", "K", lsp.buf.hover, opts)
-  map("n", "gi", lsp.buf.implementation, opts)
-  map("n", "gD", lsp.buf.declaration, opts)
-  map("n", "gr", lsp.buf.references, opts)
+  local buf = lsp.buf
+  -- map("n", "gd", lsp.buf.definition, opts)
+  -- map("n", "K", lsp.buf.hover, opts)
+  -- map("n", "gi", lsp.buf.implementation, opts)
+  -- map("n", "gD", lsp.buf.declaration, opts)
+  -- map("n", "gr", lsp.buf.references, opts)
+  map("n", "K", buf.hover, opts)
+  map("n", "gd", buf.definition, opts)
+  map("n", "gD", buf.declaration, opts)
+  map("n", "gi", buf.implementation, opts)
+  map("n", "go", buf.type_definition, opts)
+  map("n", "gr", buf.references, opts)
+  map("n", "gs", buf.signature_help, opts)
 end
 
 lsp.config("*", {

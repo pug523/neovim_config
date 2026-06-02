@@ -30,8 +30,12 @@ opt.completeopt = {
   "fuzzy",
   "popup",
 }
+
 opt.termguicolors = true
 opt.laststatus = 3
+
+opt.wrap = false
+opt.linebreak = false
 
 g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
