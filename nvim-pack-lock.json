@@ -96,6 +96,10 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
+    "lean.nvim": {
+      "rev": "bf040dc5a6454ee318bf280950780d3eb5c61265",
+      "src": "https://github.com/julian/lean.nvim"
+    },
     "lualine.nvim": {
       "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
